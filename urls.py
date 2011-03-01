@@ -7,7 +7,8 @@ admin.autodiscover()
 #handler404 = 'dexweb.views.not_found'
 #handler500 = 'dexweb.views.server_error'
 
-from hringfari_web.views import index, show_content
+from hringfari_web.views import index
+from hringfari_web.views import content_index, show_content
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
