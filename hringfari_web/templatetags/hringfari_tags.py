@@ -12,7 +12,7 @@ def list_of_categories(context):
     if request is not None:
         head, content_slug = os.path.split(request.path[:-1])
         
-    categories = Category.objects.all()
+    categories = Category.objects.all().order_by("order")
         
     return {'categories': categories, 'open_content_slug': content_slug }
         

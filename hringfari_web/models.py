@@ -7,6 +7,7 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
 class Category(models.Model):
+    order = models.IntegerField()
     name = models.CharField(max_length = 250)
     slug = models.SlugField()
     
@@ -14,7 +15,7 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
     
     def __unicode__(self):
-        return self.name
+        return u"%d %s" % (self.order, self.name)
         
     def all_content(self):
         return [link.content for link in  CategoryToContent.objects.filter(category = self)]
