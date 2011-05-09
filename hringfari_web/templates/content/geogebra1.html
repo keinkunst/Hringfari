@@ -1,4 +1,6 @@
-{% extends 'content.html '%}
+{% extends 'content.html' %}
+
+{% block title %}{{ content.name }} | {{ block.super }}{% endblock %}
 
 {% block content %}
 Þetta er frábært geogebru verkefni inf. búsúsúabíasóab

@@ -21,6 +21,16 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
+- kind: hringfari_web_category
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: hringfari_web_categorytocontent
+  properties:
+  - name: __key__
+    direction: desc
+
 - kind: hringfari_web_content
   properties:
   - name: __key__

@@ -1,13 +1,34 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>{% block title %}{% endblock %}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.6.min.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/navigation.js"></script>
+<!--         <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/reset.css" /> -->
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/base.css" />
+        
+        {% load hringfari_tags %}
     </head>
 <body>
     <div id="page">
         <div id="header">
-            <h1>GeoGebrusíða</h1>
+            <h1>GeoGebru síða</h1>
+        </div>
+        <div id="navigation">
+            <ul>
+                <li><a href="{% url index %}">Forsiða</a></li>
+                <li>
+                    <span>Verkefni</span>
+                    {% list_of_categories %}
+                    
+                </li>
+                <li>
+                    <a href="{% url help %}">Aðstoð</a>
+                </li>
+                        
+            </ul>
         </div>
         <div id="content">
             {% block content %}{% endblock %}
