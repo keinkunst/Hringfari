@@ -8,13 +8,14 @@ admin.autodiscover()
 #handler500 = 'dexweb.views.server_error'
 
 from hringfari_web.views import index
-from hringfari_web.views import content_index, show_content
+from hringfari_web.views import content_index, show_content, help
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    (r'^$', index),
+    url(r'^$', index, name = "index"),
     url('^verkefni/$', content_index),
-    url('^verkefni/(?P<content_slug>[^/]+)/$', show_content)
+    url('^verkefni/(?P<content_slug>[^/]+)/$', show_content, name = "show_content"),
+    url('^adstod/$', help, name = "help")
 )
 
 from django.conf import settings

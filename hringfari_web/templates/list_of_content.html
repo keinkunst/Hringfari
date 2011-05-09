@@ -1,5 +1,14 @@
-<ul>
-{% for content in all_content %}
-
+<ul id="categories">
+{% for category in categories %}
+<li>
+    <span>{{ category.name }}</span>
+    <ul>
+        {% for content in category.all_content %}
+        <li {% ifequal open_content_slug content.slug %}class="selected"{% endifequal %}>
+            <a href="{{ content.get_absolute_url }}">{{ content.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</li>
 {% endfor %}
 </ul>
